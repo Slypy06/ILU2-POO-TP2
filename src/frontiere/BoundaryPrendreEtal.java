@@ -10,18 +10,32 @@ public class BoundaryPrendreEtal {
 	}
 
 	public void prendreEtal(String nomVendeur) {
-	
+		
+		StringBuilder sb;
+		
 		if(!controlPrendreEtal.verifierIdentite(nomVendeur)) {
 			
-			System.out.println("Je suis désolé " + nomVendeur + " mais il faut être un habitant de notre village pour commercer ici.");
+			sb = new StringBuilder();
+			sb.append("Je suis désolé ");
+			sb.append(nomVendeur);
+			sb.append(" mais il faut être un habitant de notre village pour commercer ici.");
+			System.out.println(sb.toString());
 			
 		} else {
 			
-			System.out.println("Bonjour " + nomVendeur + ", je vais regarder si je peux vous trouver un étal.");
+			sb = new StringBuilder();
+			sb.append("Bonjour ");
+			sb.append(nomVendeur);
+			sb.append(", je vais regarder si je peux vous trouver un étal.");
+			System.out.println(sb.toString());
 			
 			if(!controlPrendreEtal.resteEtals()) {
 				
-				System.out.println("Désolé " + nomVendeur + " je n'ai plus d'étal qui ne soit pas déjà occupé.");
+				sb = new StringBuilder();
+				sb.append("Désolé ");
+				sb.append(nomVendeur);
+				sb.append(" je n'ai plus d'étal qui ne soit pas déjà occupé.");
+				System.out.println(sb.toString());
 				
 			} else {
 				
@@ -30,23 +44,30 @@ public class BoundaryPrendreEtal {
 			}
 			
 		}
-		
 	}
 
 	private void installerVendeur(String nomVendeur) {
 		
+		StringBuilder sb;
+		
 		System.out.println("C'est parfait, il me reste un étal pour vous !");
 		System.out.println("Il me faudrait quelques renseignements :");
+		
 		String produit = Clavier.entrerChaine("Quel produit souhaitez-vous vendre ?");
+
 		int nbProduit = Clavier.entrerEntier("Combien souhaitez-vous en vendre ?");
 		
 		int numeroEtal = controlPrendreEtal.prendreEtal(nomVendeur, produit, nbProduit);
 		
 		if(numeroEtal != -1) {
 			
-			System.out.println("Le vendeur " + nomVendeur + " s'est installé à l'étal n°" + numeroEtal);
+			sb = new StringBuilder();
+			sb.append("Le vendeur ");
+			sb.append(nomVendeur);
+			sb.append(" s'est installé à l'étal n°");
+			sb.append(numeroEtal);
+			System.out.println(sb.toString());
 			
 		}
-		
 	}
 }

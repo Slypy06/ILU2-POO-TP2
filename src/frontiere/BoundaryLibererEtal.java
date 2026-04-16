@@ -27,8 +27,21 @@ public class BoundaryLibererEtal {
 				String quantiteInitial = doneesEtal[3];
 				String quantiteVendu = doneesEtal[4];
 				
-				System.out.println("Vous avez vendu " + quantiteVendu + " sur " + quantiteInitial + " " + produit + ".");
-				System.out.println("Au revoir " + nomVendeur + ", passez une bonne journée.");
+				StringBuilder sb = new StringBuilder();
+				sb.append("Vous avez vendu ");
+				sb.append(quantiteVendu);
+				sb.append(" sur ");
+				sb.append(quantiteInitial);
+				sb.append(" ");
+				sb.append(produit);
+				sb.append(".");
+				System.out.println(sb.toString());
+
+				sb = new StringBuilder();
+				sb.append("Au revoir ");
+				sb.append(nomVendeur);
+				sb.append(", passez une bonne journée.");
+				System.out.println(sb.toString());
 				
 			}
 			
